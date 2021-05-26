@@ -1,3 +1,27 @@
-<p>
-  {{ post.message }}
-</p>
+<ion-card>
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img src="/assets/avatars/av-1.png" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{post.user.nombre}}</h2>
+    </ion-label>
+  </ion-item>
+  <ion-slides>
+    <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-1.jpg');">
+    </ion-slide>
+    <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-2.jpg');">
+    </ion-slide>
+    <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-3.jpg');">
+    </ion-slide>
+  </ion-slides>
+  <!-- mapa -->
+  <ion-item lines="none">
+    <ion-icon slot="start" name="heart-outline"></ion-icon>
+    <ion-icon slot="end" name="bookmark"></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-label text-wrap>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae dolor eius, ab laudantium error temporibus repellendus, inventore aperiam, necessitatibus similique harum laborum eum! Repudiandae quod ducimus ipsa doloribus, fugit alias.</ion-label>
+
+  </ion-item>
+</ion-card>

@@ -1,7 +1,18 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      {{ title }}
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon color="secondary" slot="start" name="planet"></ion-icon>
+        <ion-label class="bold app-name">FotosGram</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-chip color="secondary" outline="true">
+        <ion-avatar>
+          <img src="/assets/img/mameshibawallpaper.png" />
+        </ion-avatar>
+        <ion-label color="secondary">Antonio Barco</ion-label>
+      </ion-chip>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>

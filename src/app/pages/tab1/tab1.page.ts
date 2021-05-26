@@ -17,6 +17,7 @@ export class Tab1Page implements OnInit{
 
   ngOnInit(){
     this.postsHttp.getPost().subscribe( resp => {
+      console.log(resp.post)
       this.posts.push(...resp.post);
     });
   }
