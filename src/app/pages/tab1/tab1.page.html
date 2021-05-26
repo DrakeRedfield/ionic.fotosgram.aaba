@@ -1,0 +1,8 @@
+<app-header title="Home"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="updatePosts($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <app-posts [posts]="posts"></app-posts>
+</ion-content>
