@@ -9,7 +9,7 @@ import { IPost } from '../../interfaces/interfaces';
 export class PostComponent implements OnInit {
 
   @Input() post: IPost = {};
-
+  img = '/assets/img/perro-1.jpg'
   constructor() { }
 
   ngOnInit() {}

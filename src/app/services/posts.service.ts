@@ -10,12 +10,14 @@ const URL = environment.url;
 })
 export class PostsService {
 
-  pagePost = 0;
+  private pagePost = 0;
+
   constructor(
     private http: HttpClient,
   ) { }
 
-  getPost(){
+  getPost(isPull: boolean = false){
+    if ( isPull ) this.pagePost = 0;
     this.pagePost++;
     return this.http.get<IPostResponse>(`${URL}/posts/?page=${this.pagePost}`);
   }

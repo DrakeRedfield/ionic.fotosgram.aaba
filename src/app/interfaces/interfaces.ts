@@ -1,3 +1,9 @@
+export interface IResponse {
+  status: boolean,
+  token: string,
+  user?: IUser,
+}
+
 export interface IPostResponse {
   status: boolean;
   page: number;
@@ -20,4 +26,5 @@ export interface IUser {
   nombre?: string;
   email?: string;
   __v?: number;
+  password?: string,
 }

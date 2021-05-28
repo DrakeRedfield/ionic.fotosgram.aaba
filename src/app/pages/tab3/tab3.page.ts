@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UsersService } from '../../services/users.service';
+import { IUser } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  user: IUser = {}
 
+  constructor(
+    private userService: UsersService,
+  ) {}
+  
+  ionViewWillEnter(){
+    this.user = this.userService.user;
+  }
 }

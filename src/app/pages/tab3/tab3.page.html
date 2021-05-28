@@ -1,11 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-label>Tab 3</ion-label>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div class="spacer"></div>
+      <ion-avatar *ngIf="user.avatar" class="avatar-user">
+        <img [src]="user.avatar | urlAvatar" />
+      </ion-avatar>
+      <div class="spacer"></div>
+      <ion-item>
+        <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+        <ion-label class="bold">{{user.nombre}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-label class="bold">{{user.email}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="cog-outline"></ion-icon>
+        <ion-label class="bold">Editar Perfil</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        <ion-label class="bold">Cerrar Sesión</ion-label>
+      </ion-item>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <ion-item>
+        <ion-icon slot="start" name="logo-linkedin"></ion-icon>
+        <ion-label class="bold">Visita mi LinkedIn</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

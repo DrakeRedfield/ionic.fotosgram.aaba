@@ -8,7 +8,7 @@
     </ion-label>
   </ion-item>
   <ion-slides>
-    <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-1.jpg');">
+    <ion-slide class="img-containt" [style]="img | domSanitizer">
     </ion-slide>
     <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-2.jpg');">
     </ion-slide>

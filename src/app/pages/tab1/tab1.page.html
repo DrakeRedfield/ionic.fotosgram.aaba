@@ -4,5 +4,13 @@
   <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="updatePosts($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+
   <app-posts [posts]="posts"></app-posts>
+
+  <ion-infinite-scroll threshold="150px" [disabled]="disableInfiniteS" (ionInfinite)="loadPost($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="crescent"
+      loadingText="Loading Posts">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

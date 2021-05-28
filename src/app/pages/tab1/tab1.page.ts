@@ -9,6 +9,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class Tab1Page implements OnInit{
 
+  disableInfiniteS = false;
   posts: IPost[] = [];
 
   constructor(
@@ -16,16 +17,27 @@ export class Tab1Page implements OnInit{
   ) {}
 
   ngOnInit(){
-    this.postsHttp.getPost().subscribe( resp => {
+    this.loadPost();
+  }
+
+  loadPost( event?, pull:boolean = false ){
+    this.postsHttp.getPost(pull).subscribe( resp => {
       console.log(resp.post)
       this.posts.push(...resp.post);
+      if( event ){
+        event.target.complete();
+        if( resp.post.length === 0){
+          this.disableInfiniteS = true;
+        }
+      }
     });
   }
 
   updatePosts( event ){
     setTimeout(() => {
-      console.log('Async operation has ended');
-      event.target.complete();
+      this.posts = [];
+      this.disableInfiniteS = false;
+      this.loadPost(event,true);
     }, 1000);
   }
 }
