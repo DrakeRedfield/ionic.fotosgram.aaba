@@ -1,5 +1,13 @@
-<app-header title="Home"></app-header>
+<app-header></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-label>Tab 2</ion-label>
+<ion-content>
+  <ion-item lines="none" class="item-banner">
+    <img class="img-top" src="/assets/img/good.png" slot="start"/>
+    <ion-label class="bold ion-text-wrap">Puedes crear tus Post y compartirlo con los demás</ion-label>
+  </ion-item>
+  <div class="spacer"></div>
+  <ion-item lines="none">
+    <ion-label class="bold">Agregar Ubicación Actual</ion-label>
+  </ion-item>
+  <ion-textarea rows="6" class="text-area" placeholder="Cuentanos, ¿En qué estás pensando?"></ion-textarea>
 </ion-content>
