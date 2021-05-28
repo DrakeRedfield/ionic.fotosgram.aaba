@@ -7,6 +7,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { SelectorAvatarComponent } from './selector-avatar/selector-avatar.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -16,12 +17,14 @@ import { SelectorAvatarComponent } from './selector-avatar/selector-avatar.compo
     PostsComponent,
     PostComponent,
     SelectorAvatarComponent,
+    EditProfileComponent,
   ],
   exports:[
     HeaderComponent,
     PostsComponent,
     PostComponent,
     SelectorAvatarComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,

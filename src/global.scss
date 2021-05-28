@@ -28,3 +28,14 @@
 .bold{
     font-weight: bold;
 }
+//Style half modal
+.half-modal-class{
+    --backdrop-opacity: 0.6;
+}
+.half-modal-class .modal-wrapper{
+    height: 60%;
+    bottom:0;
+    position: absolute;
+    display: block;
+    --border-radius: 40px 40px 0 0;
+}

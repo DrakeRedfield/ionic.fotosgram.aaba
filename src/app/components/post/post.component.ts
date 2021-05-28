@@ -12,6 +12,8 @@ export class PostComponent implements OnInit {
   img = '/assets/img/perro-1.jpg'
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.post)
+  }
 
 }

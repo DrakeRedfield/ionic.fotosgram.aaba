@@ -14,13 +14,17 @@ export class UsersService {
 
   private token: string = null;
   tokenTemp: string = '';
-  user: IUser = {};
+  private user: IUser = {};
 
   constructor(
     private http: HttpClient,
     private storage: Storage,
     private navCtrl: NavController,
   ) { }
+
+  getUser(){
+    return {...this.user};
+  }
 
   login( email: string, password:string ){
     return new Promise( ( resolve => {
@@ -37,6 +41,22 @@ export class UsersService {
         resolve(await this.responseLoginReg(resp));
       });
     }));
+  }
+
+  updateUser( userData: IUser ){
+    return new Promise( resolve => {
+      const headers = new HttpHeaders({
+        'X-Token': this.token
+      });
+      this.http.post(`${URL}/user/update`,userData,{headers}).subscribe( async (resp:IResponse) => {
+        if( resp.status ){
+          await this.saveToken(resp.token);
+          resolve(true);
+        }else{
+          resolve(false);
+        }
+      });
+    });
   }
 
   async responseLoginReg( resp: IResponse ){
@@ -71,7 +91,6 @@ export class UsersService {
         'X-Token': this.token,
       })
       this.http.get(`${URL}/user`, {headers: header}).subscribe( ( resp: IResponse ) => {
-        console.log(resp)
         if( resp.status ){
           this.user = resp.user;
           resolve(true);

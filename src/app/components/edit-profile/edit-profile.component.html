@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-selector-avatar (avatarSelect)="selectAvatar( $event )" [(avatarSelected)]="userData.avatar"></app-selector-avatar>
+  <br><br>
+  <form (ngSubmit)="saveData( fSetting )" #fSetting="ngForm">
+    <ion-item>
+      <ion-label class="bold">Nombre</ion-label>
+      <ion-input required name="nombre" type="text" [(ngModel)]="userData.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="bold">Correo</ion-label>
+      <ion-input name="email" type="text" required [(ngModel)]="userData.email"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button type="submit" class="bold" color="secondary" expand="full" fill="clear">
+      Guardar Cambios
+    </ion-button>
+  </form>
+  
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="footer-edit">
+  </ion-toolbar>
+</ion-footer>
