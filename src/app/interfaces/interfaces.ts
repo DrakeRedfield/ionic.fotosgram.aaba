@@ -18,6 +18,7 @@ export interface IPost {
   user?: IUser;
   created?: string;
   __v?: number;
+  hasCoords?: boolean;
 }
 
 export interface IUser {

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="dev.fotosgram.aaba" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Fotosgram</name>
+    <description>Aplicación tipo red social donde podrás crear un perfil, iniciar sesión, crear posts y ver posts que los demás han publicado.</description>
+    <author email="drake.redfield2@hotmail.com" href="https://www.linkedin.com/in/angel-antonio-barco-alfaro-b36b6316a">Ángel Antonio Barco alfaro</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -44,6 +44,21 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>Usamos tu locación para poder colocarlo en el Post que tú autorices.</string>
+        </edit-config>
+        <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+            <string>Usamos la cámara para poder adjuntar las fotos que más prefieras adjuntar en tus Posts.</string>
+        </config-file>
+        <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
+            <string>Necesitamos permisos para acceder a tu galería y adjuntar las imágenes que te gustaría ver en tus posts.</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>Se necesita acceso para la ubicación.</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
+            <string>Se necesita acceso para poder guardar las fotos que tomes con la cámara en tu galería.</string>
+        </edit-config>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />

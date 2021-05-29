@@ -3,8 +3,8 @@ ion-content{
     --padding-top: 20px;
 }
 .text-area{
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
 }
 .spacer{
     width: 100%;
@@ -16,4 +16,34 @@ ion-content{
 .img-top{
     width: 30%;
     height: 30%;
+}
+.btn-section{
+    display: flex;
+}
+.btn-section ion-button{
+    margin:0;
+    margin-top: 10px;
+    width: 50%;
+    --border-radius: 0;
+    --background: #3f999f;
+    --box-shadow: none;
+    // color: black;
+    font-weight: bold;
+}
+ion-fab-button{
+    --background: #3f999f;
+}
+.galery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+.galery .image{
+    width: 30%;
+    padding-top: 30%;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

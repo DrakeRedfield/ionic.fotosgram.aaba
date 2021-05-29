@@ -7,21 +7,18 @@
       <h2>{{post.user.nombre}}</h2>
     </ion-label>
   </ion-item>
+  <!-- Slides -->
   <ion-slides>
-    <ion-slide class="img-containt" [style]="img | domSanitizer">
-    </ion-slide>
-    <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-2.jpg');">
-    </ion-slide>
-    <ion-slide class="img-containt" style="background-image: url('/assets/img/perro-3.jpg');">
+    <ion-slide class="img-containt" *ngFor="let img of post.imgs;" [style]="urlImages+img | domSanitizer | imageSanitizer">
     </ion-slide>
   </ion-slides>
   <!-- mapa -->
+  <app-mapa [coords]="post.coords" *ngIf="post.coords"></app-mapa>
   <ion-item lines="none">
     <ion-icon slot="start" name="heart-outline"></ion-icon>
     <ion-icon slot="end" name="bookmark"></ion-icon>
   </ion-item>
   <ion-item>
-    <ion-label text-wrap>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae dolor eius, ab laudantium error temporibus repellendus, inventore aperiam, necessitatibus similique harum laborum eum! Repudiandae quod ducimus ipsa doloribus, fugit alias.</ion-label>
-
+    <ion-label text-wrap>{{post.message}}</ion-label>
   </ion-item>
 </ion-card>

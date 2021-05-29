@@ -8,6 +8,7 @@ import { PostComponent } from './post/post.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { SelectorAvatarComponent } from './selector-avatar/selector-avatar.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { MapaComponent } from './mapa/mapa.component';
 
 
 
@@ -18,6 +19,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     PostComponent,
     SelectorAvatarComponent,
     EditProfileComponent,
+    MapaComponent,
   ],
   exports:[
     HeaderComponent,

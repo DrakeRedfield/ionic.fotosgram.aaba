@@ -12,7 +12,7 @@ const URL = environment.url;
 })
 export class UsersService {
 
-  private token: string = null;
+  token: string = null;
   tokenTemp: string = '';
   private user: IUser = {};
 

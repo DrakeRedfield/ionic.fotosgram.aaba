@@ -5,9 +5,30 @@
     <img class="img-top" src="/assets/img/good.png" slot="start"/>
     <ion-label class="bold ion-text-wrap">Puedes crear tus Post y compartirlo con los demás</ion-label>
   </ion-item>
-  <div class="spacer"></div>
+  <!-- <div class="spacer"></div> -->
   <ion-item lines="none">
+    <ion-icon slot="start" name="location"></ion-icon>
     <ion-label class="bold">Agregar Ubicación Actual</ion-label>
+    <ion-spinner name="bubbles" slot="end" *ngIf="gettingLocation"></ion-spinner>
+    <ion-toggle slot="end" [(ngModel)]="post.hasCoords" (ionChange)="setLocation()"></ion-toggle>
   </ion-item>
-  <ion-textarea rows="6" class="text-area" placeholder="Cuentanos, ¿En qué estás pensando?"></ion-textarea>
+  <ion-textarea rows="6" [(ngModel)]="post.message" class="text-area" placeholder="Cuentanos, ¿En qué estás pensando?"></ion-textarea>
+  <div class="btn-section">
+    <ion-button (click)="addImage()">
+      <ion-icon slot="start" name="image"></ion-icon>
+      Galería
+    </ion-button>
+    <ion-button (click)="useCamera()">
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Cámara
+    </ion-button>
+  </div>
+  <div class="galery">
+    <div class="image" *ngFor="let image of tempImages;" style="background-image: url('{{image | imageSanitizer}}');"></div>
+  </div>
 </ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button [disabled]="post.message.trim() == '' || gettingLocation" (click)="createPost()">
+    <ion-icon name="send-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

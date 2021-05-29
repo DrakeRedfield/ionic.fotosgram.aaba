@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
