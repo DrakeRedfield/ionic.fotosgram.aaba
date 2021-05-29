@@ -8,8 +8,12 @@
     </ion-label>
   </ion-item>
   <!-- Slides -->
-  <ion-slides>
-    <ion-slide class="img-containt" *ngFor="let img of post.imgs;" [style]="urlImages+img | domSanitizer | imageSanitizer">
+  <ion-slides *ngIf="post.imgs.length > 1">
+    <ion-slide class="img-containt" *ngFor="let img of post.imgs;" [style]="((img | imageserver:post.user._id ) | domSanitizer) ">
+    </ion-slide>
+  </ion-slides>
+  <ion-slides *ngIf="post.imgs.length === 1" class="swiper-no-swiping">
+    <ion-slide class="img-containt" [style]="((post.imgs[0] | imageserver:post.user._id ) | domSanitizer) ">
     </ion-slide>
   </ion-slides>
   <!-- mapa -->

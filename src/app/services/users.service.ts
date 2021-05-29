@@ -30,7 +30,8 @@ export class UsersService {
     return new Promise( ( resolve => {
       const data = { email, password};
       this.http.post(`${URL}/user/login`,data).subscribe( async ( resp: IResponse ) => {
-        resolve(await this.responseLoginReg(resp));
+        const hasLogged = await this.responseLoginReg(resp)
+        resolve(hasLogged);
       });
     }));
   }
@@ -38,9 +39,21 @@ export class UsersService {
   register( userData: IUser ){
     return new Promise( ( resolve => {
       this.http.post(`${URL}/user/create`,userData).subscribe( async ( resp: IResponse ) => {
-        resolve(await this.responseLoginReg(resp));
+        const hasLogged = await this.responseLoginReg(resp)
+        resolve(hasLogged);
       });
     }));
+  }
+  
+  async responseLoginReg( resp: IResponse ){
+    if( resp.status ){
+      await this.saveToken(resp.token);
+      return true;
+    }else{
+      this.token = null;
+      this.storage.clear();
+      return false;
+    }
   }
 
   updateUser( userData: IUser ){
@@ -59,21 +72,11 @@ export class UsersService {
     });
   }
 
-  async responseLoginReg( resp: IResponse ){
-    if( resp.status ){
-      await this.saveToken(resp.token);
-      return true;
-    }else{
-      this.token = null;
-      this.storage.clear();
-      return false;
-    }
-  }
-
   async saveToken(token:string){
     this.token = token;
     this.tokenTemp = token;
     await this.storage.set('token',token);
+    this.validateToken();
   }
 
   async loadToken(){
@@ -101,4 +104,12 @@ export class UsersService {
       });
     })
   }
+
+  logout(){
+    this.token = null;
+    this.user = null;
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/login',{animated:true});
+  }
+
 }

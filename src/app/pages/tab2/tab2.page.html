@@ -14,7 +14,7 @@
   </ion-item>
   <ion-textarea rows="6" [(ngModel)]="post.message" class="text-area" placeholder="Cuentanos, ¿En qué estás pensando?"></ion-textarea>
   <div class="btn-section">
-    <ion-button (click)="addImage()">
+    <ion-button (click)="useGalery()">
       <ion-icon slot="start" name="image"></ion-icon>
       Galería
     </ion-button>
@@ -24,7 +24,8 @@
     </ion-button>
   </div>
   <div class="galery">
-    <div class="image" *ngFor="let image of tempImages;" style="background-image: url('{{image | imageSanitizer}}');"></div>
+    <div class="image" *ngFor="let image of tempImages;" [style]="image | domSanitizer">
+    </div>
   </div>
 </ion-content>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">

@@ -30,7 +30,15 @@ export class Tab2Page {
   ) {}
 
   useGalery(){
-    // console.log(this.post)
+    const options: CameraOptions = {
+      quality: 60,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+    this.getImage(options);
   }
 
   useCamera(){
@@ -42,10 +50,15 @@ export class Tab2Page {
       correctOrientation: true,
       sourceType: this.camera.PictureSourceType.CAMERA
     }
+    this.getImage(options);
     
+  }
+
+  getImage(options: CameraOptions){
     this.camera.getPicture(options).then((imageData) => {
       const img = window.Ionic.WebView.convertFileSrc( imageData );
-      console.log(img)
+      console.log(img);
+      this.postService.uploadFiles( imageData );
       this.tempImages.push(img);
     }, (err) => {
      // Handle error
@@ -59,6 +72,7 @@ export class Tab2Page {
       message: '',
       hasCoords: false,
     };
+    this.tempImages = [];
     this.routes.navigateByUrl('/main/home');
   }
 

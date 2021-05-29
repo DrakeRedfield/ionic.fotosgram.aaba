@@ -23,7 +23,6 @@ export class Tab1Page implements OnInit{
 
   loadPost( event?, pull:boolean = false ){
     this.postsHttp.getPost(pull).subscribe( resp => {
-      // console.log(resp.post)
       this.posts.push(...resp.post);
       if( event ){
         event.target.complete();

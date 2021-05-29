@@ -3,6 +3,7 @@ import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
 import { EditProfileComponent } from '../../components/edit-profile/edit-profile.component';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'app-tab3',
@@ -15,6 +16,7 @@ export class Tab3Page {
 
   constructor(
     private userService: UsersService,
+    private postService: PostsService,
     private modalController: ModalController,
   ) {}
   
@@ -32,5 +34,10 @@ export class Tab3Page {
     if(data.status){
       this.user = data.user;
     }
+  }
+
+  logout(){
+    this.postService.pagePost = 0;
+    this.userService.logout();
   }
 }
