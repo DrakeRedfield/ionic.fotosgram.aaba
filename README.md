@@ -27,10 +27,6 @@ Para más información visita [Geolocation](https://ionicframework.com/docs/nati
 
 Para más información visita [Camera](https://ionicframework.com/docs/native/camera)
 
-#### Image Picker
-
-Para más información visita [Image Picker](https://ionicframework.com/docs/native/image-picker)
-
 #### File Transfer
 
 Para más información visita [Image Picker](https://ionicframework.com/docs/native/image-picker)
