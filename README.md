@@ -3,7 +3,13 @@
 Esta es una aplicación de red social donde podrás crear una cuenta, iniciar sesión, ver y crear posts, además de poder modificar tu cuenta.
 Los post pueden contener una galería de imágenes, una ubicación o sólo un texto.
 
+# Galería
+
+<img width="260px" hspace="10" vspace="5" src="https://user-images.githubusercontent.com/83781782/120059542-e2fdd980-c017-11eb-85fe-6de59a529e85.png"> <img width="260px" hspace="10" vspace="5" src="https://user-images.githubusercontent.com/83781782/120059567-04f75c00-c018-11eb-9cc2-dc173e7e6a1e.png"> <img width="260px" hspace="10" vspace="5" src="https://user-images.githubusercontent.com/83781782/120059613-412abc80-c018-11eb-935a-19efefb74a4f.png">
+
 # Instalación
+
+<img width="260px" align="right" hspace="10" vspace="5" src="https://user-images.githubusercontent.com/83781782/120059526-ca8dbf00-c017-11eb-8169-34ac83943a7f.png">
 
 Es necesario ejecutar npm install para reconstruir el node_module
 
